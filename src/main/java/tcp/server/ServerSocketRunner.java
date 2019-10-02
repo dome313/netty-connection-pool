@@ -10,6 +10,7 @@ public class ServerSocketRunner {
 
   public static void main(String[] args) throws Exception {
     ServerSocket serverSocket = new ServerSocket(9000);
+
     while (true) {
       Socket socket = serverSocket.accept();
 
@@ -25,6 +26,7 @@ public class ServerSocketRunner {
           do {
             inputLine = in.readLine();
             System.out.println("Received: " + inputLine);
+            out.println("Message Received");
           } while (!"bye".equals(inputLine));
 
           System.out.println("Closing connection...");
@@ -33,6 +35,7 @@ public class ServerSocketRunner {
           e.printStackTrace();
         }
       }).start();
+
     }
   }
 }
